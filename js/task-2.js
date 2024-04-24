@@ -8,9 +8,11 @@ class Storage {
   addItem(newItem) { return this.#items.push(newItem); }
 
   removeItem(itemToRemove) {
-    for (const item of this.#items) { if (item === itemToRemove) { this.#items.splice(item, 1) }; }
+    const removeItem = this.#items.indexOf(itemToRemove);
+    if (removeItem !== -1) { this.#items.splice(removeItem, 1);}
   }
 }
+
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 
